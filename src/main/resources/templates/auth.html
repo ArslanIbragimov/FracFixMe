@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="ru">
+    <main>
+
+    </main>
+    <head>
+        <title>Авторизация</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1>Войдите в личный кабинет</h1>
+        <form action="#" th:action="@{/auth}" th:object="${auth}" method="post">
+            <p>Login: <label>
+                <input type="text" th:field="*{username}" />
+            </label></p>
+            <p>Password: <label>
+                <input type="text" th:field="*{password}" />
+            </label></p>
+            <p>Email: <label>
+                <input type="text" th:field="*{email}" />
+            </label></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+    </body>
+    
+
+</html>
