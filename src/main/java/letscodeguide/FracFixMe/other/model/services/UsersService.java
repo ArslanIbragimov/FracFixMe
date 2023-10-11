@@ -20,6 +20,8 @@ public class UsersService {
 
 
     public String validateUsersForm(String username, String password, String returnablePage) {
+
+
         UsersTable data = usersRepository.findByUsernameAndPassword(username, password);
         if (data != null) {
             return returnablePage;
@@ -28,6 +30,13 @@ public class UsersService {
             return AuthenticationController.handle;
         }
     }
+
+    //TODO:
+    //Создаем метод регистрации
+    //получаем данные из формы
+    //Создаём "ОБЪЕКТ" usersTable, сохраняем данные в сеттеры
+    //usersRepository.save("ОБЪЕКТ")
+
 
 
 }
