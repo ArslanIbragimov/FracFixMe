@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
-/*TODO:
-Сделать реализацию автотеста с помощью селениума
+/*TODO: Сделать реализацию автотеста с помощью селениума
  */
 public class AuthTest extends AbstractTest {
 
@@ -22,6 +21,7 @@ public class AuthTest extends AbstractTest {
 
 
     @Override public void fillForm() {}
+    // TODO: Реализовать автоматическое заполнение формы
     public void fillForm(String username, String password) {
 
     }
