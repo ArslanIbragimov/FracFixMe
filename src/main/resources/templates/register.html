@@ -1,20 +1,38 @@
 <!--
 
-TODO: Сделать базовую разметку
-TODO: Сделать форму регистрации
-TODO: Добавить Thymeleaf в этот html файл
+
 
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org" lang="ru">
+<main>
+
+</main>
 <head>
-
-
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Регистрация</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<h1>Зарегистрируйтесь</h1>
 
+<form action="#" th:action="@{/register}" th:object="${register}" method="post">
+    <p>Email:
+        <label>
+            <input type="text" th:field="*{email}" />
+        </label></p>
+    <p>Login:
+        <label>
+            <input type="text" th:field="*{username}" />
+        </label></p>
+    <p>Password:
+        <label>
+            <input type="password" th:field="*{password}" />
+        </label></p>
+
+    <p><input type="submit" value="Регистрация" /></p>
+</form>
 </body>
+
+
 </html>
