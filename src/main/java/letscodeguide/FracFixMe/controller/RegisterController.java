@@ -34,6 +34,16 @@ public class RegisterController {
         UsersTable appendTable = new UsersTable(registerSGetter.getUsername(),registerSGetter.getPassword(), registerSGetter.getEmail());
         //TODO: Проблема из-за : , но без него не сохранятся данные в таблице
         //usersRepository.save(appendTable);
+//TODO: Возможное решение проблемы
+// создаем новый объект
+//User user = new User();
+//user.setName("John");
+//user.setAge(25);
+//user.setCity("New York");
+
+// сохраняем новую запись в базе данных
+//userRepository.save(user);
+
         return "successfulLogin";
     }
 }
