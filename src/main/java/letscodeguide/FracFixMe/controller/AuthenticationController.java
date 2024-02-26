@@ -2,9 +2,7 @@ package letscodeguide.FracFixMe.controller;
 
 
 import letscodeguide.FracFixMe.other.SGetter.AuthSGetter;
-import letscodeguide.FracFixMe.other.model.JPARespositories.UsersRepository;
 import letscodeguide.FracFixMe.other.model.services.UsersService;
-import letscodeguide.FracFixMe.other.model.tables.UsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
