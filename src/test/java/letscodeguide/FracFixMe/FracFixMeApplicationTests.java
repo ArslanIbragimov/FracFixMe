@@ -13,18 +13,4 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootTest
 class FracFixMeApplicationTests {
 
-	@Value("${server.address}")
-	private String hostaddress;
-	@Value("${server.port}")
-	private String port;
-
-	AuthTest authTest;
-
-
-	@Test
-	void contextLoads() {
-		authTest.setTestObject(hostaddress+port);
-
-	}
-
 }

@@ -8,14 +8,24 @@ services:
     ports:
       - 5432
   site:
+
     build: .
     depends_on:
       - db_pg_16
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.1.6
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/sandbox
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db_pg_16:5432/sandbox
       SPRING_DATASOURCE_USERNAME: sandbox_user
       SPRING_DATASOURCE_PASSWORD: sandbox_password
 volumes:
   db:
+networks:
+  mynetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
