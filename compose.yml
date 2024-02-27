@@ -7,13 +7,15 @@ services:
       POSTGRES_PASSWORD: sandbox_password
     ports:
       - 5432
-  site:
+    volumes:
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
+  site:
     build: .
     depends_on:
       - db_pg_16
     networks:
-      mynetwork:
+      ipv4host:
         ipv4_address: 192.168.1.6
     ports:
       - "8080:8080"
@@ -24,7 +26,7 @@ services:
 volumes:
   db:
 networks:
-  mynetwork:
+  ipv4host:
     ipam:
       driver: default
       config:
