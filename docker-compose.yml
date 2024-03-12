@@ -1,20 +1,26 @@
+
 services:
   db_pg_16:
-    image: postgres:16
+    image: postgres:16.2-alpine
     environment:
       POSTGRES_DB: sandbox
       POSTGRES_USER: sandbox_user
       POSTGRES_PASSWORD: sandbox_password
     ports:
-      - 5432
+      - "5432:5432"
     volumes:
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - db:/data/postgres/data
+    networks:
+      dockerlocal:
+
 
   site:
-    build: .
+    build: ./site_docker/.
     depends_on:
       - db_pg_16
     networks:
+      dockerlocal:
       ipv4host:
         ipv4_address: 192.168.1.6
     ports:
@@ -26,8 +32,10 @@ services:
 volumes:
   db:
 networks:
+  dockerlocal:
+    driver: bridge
   ipv4host:
     ipam:
-      driver: default
+      driver: host
       config:
         - subnet: 192.168.1.0/24
