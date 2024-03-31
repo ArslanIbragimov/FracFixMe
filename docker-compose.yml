@@ -2,6 +2,7 @@
 services:
   db_pg_16:
     image: postgres:16.2-alpine
+    restart: always
     environment:
       POSTGRES_DB: sandbox
       POSTGRES_USER: sandbox_user
@@ -11,18 +12,14 @@ services:
     volumes:
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - db:/data/postgres/data
-    networks:
-      dockerlocal:
-
 
   site:
     build: ./site_docker/.
     depends_on:
       - db_pg_16
     networks:
-      dockerlocal:
       ipv4host:
-        ipv4_address: 192.168.1.6
+        ipv4_address: 192.168.1.8
     ports:
       - "8080:8080"
     environment:
@@ -31,11 +28,13 @@ services:
       SPRING_DATASOURCE_PASSWORD: sandbox_password
 volumes:
   db:
+
 networks:
   dockerlocal:
-    driver: bridge
+    ipam:
+      driver: bridge
   ipv4host:
     ipam:
-      driver: host
+      driver: bridge
       config:
-        - subnet: 192.168.1.0/24
+        - subnet: "192.168.1.0/24"
