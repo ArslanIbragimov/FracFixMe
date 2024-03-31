@@ -1,14 +1,14 @@
 package letscodeguide.FracFixMe.other.model.tables;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "users")
-@Setter
-@Getter
+@Data
 @NoArgsConstructor(force = true)
 public class UsersTable{
 
