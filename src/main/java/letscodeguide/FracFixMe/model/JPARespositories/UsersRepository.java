@@ -1,11 +1,11 @@
-package letscodeguide.FracFixMe.other.model.JPARespositories;
+package letscodeguide.FracFixMe.model.JPARespositories;
 
-import letscodeguide.FracFixMe.other.model.tables.UsersTable;
+import letscodeguide.FracFixMe.model.tables.UsersTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
-//Да, помимо "Find", "And" и "Or" можно использовать следующие ключевые слова:
+//Помимо "Find", "And" и "Or" можно использовать следующие ключевые слова:
 
 //- "Find" - указывает на начало запроса по конкретному полю или нескольким полям.
 //- "And" - используется для объединения условий в запросе, при котором оба условия должны быть выполнены.
@@ -25,6 +25,7 @@ public interface UsersRepository extends JpaRepository<UsersTable, Long> {
 
 
     UsersTable findByUsernameAndPassword(String username, String password);
+
 
 
 }

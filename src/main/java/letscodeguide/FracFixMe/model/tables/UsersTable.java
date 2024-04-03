@@ -1,4 +1,4 @@
-package letscodeguide.FracFixMe.other.model.tables;
+package letscodeguide.FracFixMe.model.tables;
 
 import jakarta.persistence.*;
 import lombok.Data;
