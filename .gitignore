@@ -36,6 +36,7 @@ build/
 .vscode/
 /node_modules
 /site_docker/FracFixMe-1.0.1.jar
+/node
 
 
 
