@@ -26,7 +26,7 @@ public class AuthenticationController {
 
     @GetMapping
     //Прослушиваем /auth и ожидаем заполнения формы.
-    public String onFillAuthForm(Model model){
+    public String onFillingAuthForm(Model model){
         //Инициализируем форму, инициализируем геттеры и сеттеры для их последующего заполнения
         model.addAttribute("auth", new AuthSGetter());
         //выводим форму, которую нужно заполнять
