@@ -23,14 +23,14 @@ public class SecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 )
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/register/**", "/login/**").permitAll()
+                        .requestMatchers("/register/**", "/auth/**").permitAll()
 
 
 
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/login")
+                        .loginPage("/auth")
                         .permitAll()
                 )
                 .logout(AbstractHttpConfigurer::notifyAll);
