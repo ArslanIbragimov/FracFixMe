@@ -13,4 +13,8 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootTest
 class FracFixMeApplicationTests {
 
+    @Test
+    void contextLoads() {
+    }
+
 }
