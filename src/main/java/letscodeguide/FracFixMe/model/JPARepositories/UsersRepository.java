@@ -1,8 +1,10 @@
-package letscodeguide.FracFixMe.model.JPARespositories;
+package letscodeguide.FracFixMe.model.JPARepositories;
 
 import letscodeguide.FracFixMe.model.tables.UsersTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 
 //Помимо "Find", "And" и "Or" можно использовать следующие ключевые слова:
@@ -24,7 +26,7 @@ import org.springframework.stereotype.Repository;
 public interface UsersRepository extends JpaRepository<UsersTable, Long> {
 
 
-    UsersTable findByUsernameAndPassword(String username, String password);
+    Optional<UsersTable> findByUsernameAndPassword(String username, String password);
 
 
 
