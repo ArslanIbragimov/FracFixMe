@@ -19,13 +19,10 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
     @Getter
     final protected static String handle = "/auth";
-    AuthSGetter authSGetter;
     @Autowired
-    private final UsersService usersService;
-    public AuthenticationController(UsersService usersService) {
-
-        this.usersService = usersService;
-    }
+    private AuthSGetter authSGetter;
+    @Autowired
+    private UsersService usersService;
 
     @GetMapping
     //Прослушиваем /auth и ожидаем заполнения формы.
